@@ -91,7 +91,7 @@ $button-prefix: 'btn';
 // Jackson Brazeau SCSS
 .#{button-prefix}-custom {
      @extend .btn;
-     background-color: $secondary-color; // Use the secondary color variable
+     background-color: $secondary-color;
      color: #fff;
      padding: 12px 20px;
    }
@@ -118,7 +118,7 @@ $button-colors:(
 
 // Jackson Brazeau SCSS
 .alert-custom {
-     @include theme($theme: $accent-color); // Use the accent color variable
-     border-radius: 4px; // You can adjust the border radius as needed
+     @include theme($theme: $danger-color);
+     border-radius: 4px;
    }
 // Jackson Brazeau SCSS 
