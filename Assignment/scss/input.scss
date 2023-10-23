@@ -1,0 +1,124 @@
+// Global Variables
+@import 'variables';
+
+h1 {
+     color: $primary-color;
+     border: $standar-border;
+}
+// Jackson Brazeau SCSS
+h2 {
+     color: $primary-color;
+     border: $standard-border;
+     font-size: 24px;
+     border-bottom: 2px solid $primary-color;
+     margin-top: 20px;
+     padding-bottom: 10px;
+   }
+// Jackson Brazeau SCSS
+nav {
+     background-color: #6c757d;
+     padding: 10px;
+     margin: 10px 0;
+     ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          li {
+          display: inline-block;
+          margin-right: 10px;
+          a {
+               color: #ffffff;
+               text-decoration: none;
+               &:hover {
+                    text-decoration: underline;
+                }
+             }
+          }
+       }
+   }
+
+   .btn-secondary {
+     background-color: $secondary-color;
+     &:hover{
+          background-color: rgba($secondary-color, 0.5);
+     }
+     &:active{
+          background-color: $secondary-color;
+     }
+   }
+
+   @mixin theme ($theme: darkgray)
+   {
+     background: $theme;
+     box-shadow: 0 0 1px rgba($theme, .25);
+     color: #fff;
+   }
+
+   .info {
+     @include theme 
+   }
+
+   .alert {
+     @include theme($theme: darkred)
+   }
+
+   .success {
+     @include theme($theme: darkgreen)
+   }
+
+   .btn {
+     padding: 10px 15px;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     font-size: 16px;
+     transition: background-color 0.3s;
+   }
+
+   .btn-primary {
+     @extend .btn;
+     background-color: $primary-color;
+   }
+
+   // SASS interpolation 
+ 
+$button-prefix: 'btn';
+
+.#{button-prefix}-lg {
+     padding: 15px 30px;
+}
+
+// Jackson Brazeau SCSS
+.#{button-prefix}-custom {
+     @extend .btn;
+     background-color: $secondary-color; // Use the secondary color variable
+     color: #fff;
+     padding: 12px 20px;
+   }
+   
+   .#{button-prefix}-custom:hover {
+     background-color: rgba($secondary-color, 0.5);
+   }
+// Jackson Brazeau SCSS
+
+$button-colors:(
+     primary: #007bff,
+     secondary: #6c757d,
+     success: #28a745,
+     danger: #dc3545
+);
+
+@each $color, $bgColor in $button-colors{
+     .#{$button-prefix}-#{$color} {
+          background-color: $bgColor;
+          color: white;
+     }
+
+}
+
+// Jackson Brazeau SCSS
+.alert-custom {
+     @include theme($theme: $accent-color); // Use the accent color variable
+     border-radius: 4px; // You can adjust the border radius as needed
+   }
+// Jackson Brazeau SCSS 
