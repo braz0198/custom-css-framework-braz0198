@@ -15,6 +15,60 @@ h2 {
      padding-bottom: 10px;
    }
 
+   .#{button-prefix}-custom {
+     @extend .btn;
+     background-color: $secondary-color;
+     color: #fff;
+     padding: 12px 20px;
+   }
+   
+   .#{button-prefix}-custom:hover {
+     background-color: rgba($secondary-color, 0.5);
+   }
+   
+   .alert-custom {
+     @include theme($theme: $button-colors $danger);
+     border-radius: 4px;
+   }
+
+   @mixin btn-styles($bg-color, $text-color) {
+     padding: 10px 15px;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+     font-size: 16px;
+     background-color: $bg-color;
+     color: $text-color;
+     transition: background-color 0.3s;
+   }
+   
+   .btn-primary {
+     @include btn-styles($primary-color, #fff);
+   }
+   
+   .btn-secondary {
+     @include btn-styles($secondary-color, #fff);
+   }
+
+   .post {
+     padding: 20px;
+     margin-bottom: 20px;
+     background-color: #fff;
+     border: 1px solid #ddd;
+   }
+   
+   .featured-post {
+     @extend .post;
+     border-color: $featured-color;
+   }
+   $button-prefix: ".btn-lg";
+
+#{$button-prefix} {
+  padding: 15px 30px;
+}
+
+// Jackson Brazeau SCSS
+
    nav {
      background-color: #6c757d;
      padding: 10px;
@@ -40,9 +94,6 @@ h2 {
        }
      }
    }
-   
-// Jackson Brazeau SCSS
-
    .btn-secondary {
      background-color: $secondary-color;
      &:hover{
@@ -86,45 +137,17 @@ h2 {
      background-color: $primary-color;
    }
 
-   // SASS interpolation 
- 
-$button-prefix: 'btn';
+     $button-colors:(
+          primary: #007bff,
+          secondary: #6c757d,
+          success: #28a745,
+          danger: #dc3545
+     );
 
-.#{button-prefix}-lg {
-     padding: 15px 30px;
-}
+     @each $color, $bgColor in $button-colors{
+          .#{$button-prefix}-#{$color} {
+               background-color: $bgColor;
+               color: white;
+          }
 
-// Jackson Brazeau SCSS
-.#{button-prefix}-custom {
-     @extend .btn;
-     background-color: $secondary-color;
-     color: #fff;
-     padding: 12px 20px;
-   }
-   
-   .#{button-prefix}-custom:hover {
-     background-color: rgba($secondary-color, 0.5);
-   }
-// Jackson Brazeau SCSS
-
-$button-colors:(
-     primary: #007bff,
-     secondary: #6c757d,
-     success: #28a745,
-     danger: #dc3545
-);
-
-@each $color, $bgColor in $button-colors{
-     .#{$button-prefix}-#{$color} {
-          background-color: $bgColor;
-          color: white;
      }
-
-}
-
-// Jackson Brazeau SCSS
-.alert-custom {
-     @include theme($theme: $button-colors $danger);
-     border-radius: 4px;
-   }
-// Jackson Brazeau SCSS 
