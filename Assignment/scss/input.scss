@@ -118,7 +118,7 @@ $button-colors:(
 
 // Jackson Brazeau SCSS
 .alert-custom {
-     @include theme($theme: $danger-color);
+     @include theme($theme: $button-colors $danger);
      border-radius: 4px;
    }
 // Jackson Brazeau SCSS 
